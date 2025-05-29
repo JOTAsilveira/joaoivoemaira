@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memories💜</title>
+  <style>
+    :root {
+      --bg-color: #eee0ff;
+      --accent-color: #bc9fff;
+      --text-color: #444;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent-color);
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .gallery {
+      column-count: 4; /* ou 3, depende da largura da tela */
+      column-gap: 10px;
+      padding: 1rem;
+    }
+
+    .photo-card {
+      display: inline-block;
+      margin-bottom: 10px;
+      width: 100%;
+      transition: transform 0.3s ease;
+    }
+
+
+    .photo-card:hover {
+      transform: scale(1.02);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    #lightbox.hidden {
+      display: none;
+    }
+
+    #close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+
+
+<!-- Área de visualização ampliada -->
+<div id="lightbox" class="hidden">
+  <span id="close-btn">&times;</span>
+  <img id="lightbox-img" src="" alt="Foto ampliada">
+</div>
+
+<!-- 🔁 JavaScript movido para o final -->
+<script>
+  // Só roda quando todo o DOM estiver carregado
+  document.addEventListener('DOMContentLoaded', function () {
+    const fotos = document.querySelectorAll('.photo-card img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('close-btn');
+
+    fotos.forEach(foto => {
+      foto.addEventListener('click', () => {
+        lightboxImg.src = foto.src;
+        lightbox.classList.remove('hidden');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.add('hidden');
+    });
+  });
+</script>
+
+
+
+<body>
+  <h1>Memories 💜</h1>
+  <p>Um lugar só nosso, cheio de memórias e momentos felizes.</p>
+
+  <div class="gallery">
+    <div class="photo-card">
+      <img src="fotos/foto1.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto2.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto3.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto4.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto5.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto6.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto7.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto8.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto9.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto10.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto11.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto12.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto13.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto14.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto15.jpeg" alt="Foto">
+    </div>
+    <div class="photo-card">
+      <img src="fotos/foto16.jpeg" alt="Foto">
+    </div>
+
+    <!-- Adicione mais fotos aqui -->
+  </div>
+
+  <footer>
+    Feito com carinho 💕 por nós
+  </footer>
+
+
+  <!-- Área de visualização ampliada -->
+<div id="lightbox" class="hidden">
+  <span id="close-btn">&times;</span>
+  <img id="lightbox-img" src="" alt="Foto ampliada">
+</div>
+
+</body>
+</html>
